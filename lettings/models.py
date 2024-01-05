@@ -1,8 +1,8 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinLengthValidator
-from django.contrib.auth.models import User
 
 # Get data from oc_lettings_site
+
 
 class Address(models.Model):
     number = models.PositiveIntegerField(validators=[MaxValueValidator(9999)])
@@ -13,7 +13,7 @@ class Address(models.Model):
     country_iso_code = models.CharField(max_length=3, validators=[MinLengthValidator(3)])
 
     def __str__(self):
-        return f'{self.number} {self.street}'
+        return f"{self.number} {self.street}"
 
 
 class Letting(models.Model):
