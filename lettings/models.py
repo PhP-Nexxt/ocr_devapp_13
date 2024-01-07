@@ -12,6 +12,11 @@ class Address(models.Model):
     zip_code = models.PositiveIntegerField(validators=[MaxValueValidator(99999)])
     country_iso_code = models.CharField(max_length=3, validators=[MinLengthValidator(3)])
 
+    class Meta:
+        # Add singular or plural in select (pluralisation error)
+        verbose_name = "Adress"
+        verbose_name_plural = "Adresses"
+
     def __str__(self):
         return f"{self.number} {self.street}"
 
