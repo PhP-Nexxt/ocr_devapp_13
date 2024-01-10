@@ -26,4 +26,10 @@ jobs:
           python-version: "3.11"
       - run: pip install setuptools>=65.5.1 wheel>=0.38.1
       - run: pip install -r requirements.txt
-      - run: python manage.py test
+      - run: pip install coverage
+      - name: coverage test and report
+        run: |
+            coverage erase
+            coverage run manage.py test
+            coverage report
+            
