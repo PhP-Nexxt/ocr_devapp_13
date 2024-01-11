@@ -12,6 +12,16 @@ class LettingsTestCase(TestCase):
     def test_letting(self):
         self.assertEqual(Letting.objects.count(), 6)
 
+    def test_oc_lettings_site_index(self):
+        # get url of oc_lettings_site views
+        url = reverse("index")
+        # request get on url
+        response = self.client.get(url)
+        # check status code = 200
+        self.assertEqual(response.status_code, 200)
+        # check get template is the one used in views
+        self.assertTemplateUsed(response, "index.html")
+
     def test_lettings_views_index(self):
         # get url of lettings views
         url = reverse("lettings_index")

@@ -5,6 +5,7 @@ omit =
    manage.py
    asgi.py
    wsgi.py
+   apps.py
 
 [coverage:report]
 fail_under = 80
