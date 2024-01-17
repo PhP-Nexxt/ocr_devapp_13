@@ -16,7 +16,7 @@ COPY requirements.txt /code
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-# # Copies the rest of the source code
+# # Copy the rest of the source code
 COPY . /code/
 
 # Starts the Django app

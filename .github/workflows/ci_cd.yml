@@ -7,6 +7,8 @@ env:
   DOCKER_USER: ${{ secrets.DOCKER_USER }}
   DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
   DOCKER_REGISTRY: ${{ secrets.DOCKER_REGISTRY }}
+  WEB_IMAGE: ${{ secrets.WEB_IMAGE }}
+  NGINX_IMAGE: ${{ secrets.NGINX_IMAGE }}
 
 jobs:
   linting: # quality code
@@ -46,5 +48,11 @@ jobs:
       - name: login to dockerhub
         run: |
             docker login -u $DOCKER_USER -p $DOCKER_PASSWORD $DOCKER_REGISTRY
-
+      - name: pull web and nginx image from docker hub # Get last image(s)
+        # || = or (avoid crash but goahead)
+        run: |
+            docker pull $WEB_IMAGE || true 
+            docker pull $NGINX_IMAGE || true
+      - name: build docker image
+        run: docker-compose -f docker-compose.ci.yml build
             
