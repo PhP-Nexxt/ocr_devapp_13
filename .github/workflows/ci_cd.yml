@@ -55,4 +55,8 @@ jobs:
             docker pull $NGINX_IMAGE || true
       - name: build docker image
         run: docker-compose -f docker-compose.ci.yml build
+      - name:
+        run: |
+            docker push $WEB_IMAGE 
+            docker push $NGINX_IMAGE
             
