@@ -9,6 +9,16 @@ services:
     image: "phpdockenv/softdesk"
     command: "python manage.py runserver 0.0.0.0:8000"
     # expose:
-    #  -8000
+    #   - 8000
     ports:
       - 8000:8000
+
+  nginx:
+    # path of dockerfile in file nginx
+    build: ./nginx
+    # naming image
+    image: "phpdockenv/nginx"
+    ports:
+      - 80:80
+    depends_on:
+      - web
