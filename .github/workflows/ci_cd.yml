@@ -65,7 +65,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-and-push
     steps: 
-      - uses: actions/checkout@v3 # Start from 
+      - uses: actions/checkout@v3 # Start from (must be here)
       - name: copy file
         uses: appleboy/scp-action@v0.1.4 #ServerCopiePast-Action
         with: 
@@ -75,5 +75,34 @@ jobs:
           port: 22 #Defaul port Ssh
           source: "./nginx, ./docker-compose.prod.yml"
           target: "/home/${{secrets.SERVER_USER}}/project/" #$=get environnement variable
+
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    needs: before-deploy
+    steps:
+      - uses: actions/checkout@v3 # Start from
+      - name: login to dockerhub
+        run: |
+            docker login -u $DOCKER_USER -p $DOCKER_PASSWORD $DOCKER_REGISTRY
+      - name: deploy using ssh
+        uses: appleboy/ssh-action@master
+        with: 
+          host: ${{secrets.DEPLOY_PUBLIC_IP_ADDRESS}}
+          username: ${{secrets.SERVER_USER}}
+          key: ${{secrets.PRIVATE_KEY}}
+          port: 22 #Defaul port Ssh
+          script: | # Position in file project on server/down/clean/importdockerimage/up
+              cd /home/${{secrets.SERVER_USER}}/project/
+              docker-compose -f docker-compose.prod.yml down || true
+              docker rm -vf $(docker ps -aq) || true
+              docker rmi -f $(docker images -aq) || true
+              docker pull $WEB_IMAGE
+              docker pull $NGINX_IMAGE
+              docker-compose -f docker-compose.prod.yml up -d
+
+
+
+
 
 
