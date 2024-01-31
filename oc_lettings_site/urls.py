@@ -5,6 +5,10 @@ from oc_lettings_site import settings
 
 from . import views
 
+# Sentry test
+def trigger_error(request):
+    division_by_zero = 1 / 0
+
 urlpatterns = [
     # re_path : All Urls wicht start by /static will be redirect here
     # (debug css in mode Debug False (production))
@@ -13,4 +17,5 @@ urlpatterns = [
     path("lettings/", include("lettings.urls")),
     path("profiles/", include("profiles.urls")),
     path("admin/", admin.site.urls),
+    path('sentry-debug/', trigger_error), # sentry log
 ]

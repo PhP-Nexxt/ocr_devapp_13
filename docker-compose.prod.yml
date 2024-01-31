@@ -10,7 +10,8 @@ services:
     command: "python manage.py runserver 0.0.0.0:8000"
     expose:
       - 8000
-    
+    env_file: # Add environnement variables
+      - ./.env
 
   nginx:
     # path of dockerfile in file nginx
@@ -19,5 +20,7 @@ services:
     image: "phpdockenv/nginx"
     ports:
       - 80:80
+    env_file: # Add environnement variables
+      - ./.env
     depends_on:
       - web

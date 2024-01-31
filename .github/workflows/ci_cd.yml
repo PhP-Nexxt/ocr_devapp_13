@@ -9,6 +9,9 @@ env:
   DOCKER_REGISTRY: ${{ secrets.DOCKER_REGISTRY }}
   WEB_IMAGE: ${{ secrets.WEB_IMAGE }}
   NGINX_IMAGE: ${{ secrets.NGINX_IMAGE }}
+  SECRET_KEY: ${{ secrets.SECRET_KEY }}
+  SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+
 
 jobs:
   linting: # quality code
@@ -18,6 +21,12 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: "3.11"
+      # use .env file for security
+      - name: generate .env file 
+        run: |
+            chmod +x ./code/setup_env.sh
+            bash ./code/setup_env.sh
+
       - run: pip install flake8
       - run: pip install setuptools>=65.5.1 wheel>=0.38.1
       - run: pip install -r requirements.txt
@@ -31,6 +40,12 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: "3.11"
+      # use .env file for security
+      - name: generate .env file 
+        run: |
+            chmod +x ./code/setup_env.sh
+            bash ./code/setup_env.sh
+
       - run: pip install setuptools>=65.5.1 wheel>=0.38.1
       - run: pip install -r requirements.txt
       - run: pip install coverage
@@ -45,6 +60,13 @@ jobs:
     needs: test-coverage
     steps:
       - uses: actions/checkout@v3 # Start from
+
+      # use .env file for security
+      - name: generate .env file 
+        run: |
+            chmod +x ./code/setup_env.sh
+            bash ./code/setup_env.sh
+
       - name: login to dockerhub
         run: |
             docker login -u $DOCKER_USER -p $DOCKER_PASSWORD $DOCKER_REGISTRY
@@ -66,6 +88,13 @@ jobs:
     needs: build-and-push
     steps: 
       - uses: actions/checkout@v3 # Start from (must be here)
+
+      # use .env file for security
+      - name: generate .env file 
+        run: |
+            chmod +x ./code/setup_env.sh
+            bash ./code/setup_env.sh
+
       - name: copy file
         uses: appleboy/scp-action@v0.1.4 #ServerCopiePast-Action
         with: 
@@ -73,7 +102,7 @@ jobs:
           username: ${{secrets.SERVER_USER}}
           key: ${{secrets.PRIVATE_KEY}}
           port: 22 #Defaul port Ssh
-          source: "./nginx, ./docker-compose.prod.yml"
+          source: "./nginx, ./docker-compose.prod.yml, ./.env"
           target: "/home/${{secrets.SERVER_USER}}/project/" #$=get environnement variable
 
   deploy:

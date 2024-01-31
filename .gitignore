@@ -4,3 +4,4 @@ venv
 utils.md
 .coverage
 htmlcov/
+.env
