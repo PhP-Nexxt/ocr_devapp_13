@@ -24,8 +24,8 @@ jobs:
       # use .env file for security
       - name: generate .env file 
         run: |
-            chmod +x ./code/setup_env.sh
-            bash ./code/setup_env.sh
+            chmod +x ./setup_env.sh
+            bash ./setup_env.sh
 
       - run: pip install flake8
       - run: pip install setuptools>=65.5.1 wheel>=0.38.1
@@ -43,8 +43,8 @@ jobs:
       # use .env file for security
       - name: generate .env file 
         run: |
-            chmod +x ./code/setup_env.sh
-            bash ./code/setup_env.sh
+            chmod +x ./setup_env.sh
+            bash ./setup_env.sh
 
       - run: pip install setuptools>=65.5.1 wheel>=0.38.1
       - run: pip install -r requirements.txt
@@ -64,8 +64,8 @@ jobs:
       # use .env file for security
       - name: generate .env file 
         run: |
-            chmod +x ./code/setup_env.sh
-            bash ./code/setup_env.sh
+            chmod +x ./setup_env.sh
+            bash ./setup_env.sh
 
       - name: login to dockerhub
         run: |
@@ -92,8 +92,8 @@ jobs:
       # use .env file for security
       - name: generate .env file 
         run: |
-            chmod +x ./code/setup_env.sh
-            bash ./code/setup_env.sh
+            chmod +x ./setup_env.sh
+            bash ./setup_env.sh
 
       - name: copy file
         uses: appleboy/scp-action@v0.1.4 #ServerCopiePast-Action
