@@ -1,16 +1,18 @@
+
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17: http://docutils.sourceforge.net/" />
 
     <title>Guide d’utilisation &#8212; ocr devapp docs 1.0.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=039e1c02" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=af2ce170"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="ocr_devapp_13" href="modules.html" />
@@ -32,15 +34,16 @@
           <div class="body" role="main">
             
   <section id="guide-dutilisation">
-<h1>Guide d’utilisation<a class="headerlink" href="#guide-dutilisation" title="Permalink to this heading">¶</a></h1>
+<h1>Guide d’utilisation<a class="headerlink" href="#guide-dutilisation" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://github.com/PhP-Nexxt/ocr_devapp_13/actions/workflows/ci_cd.yml"><img alt="ci-cd" src="https://github.com/PhP-Nexxt/ocr_devapp_13/actions/workflows/ci_cd.yml/badge.svg" /></a></p>
 <p>Dans ce guide, nous allons vous permettre d’installer et de lancer le
 projet ocr devapp 13 en local, et dans un environnement de production.</p>
 <section id="environnement-local">
-<h2>Environnement local<a class="headerlink" href="#environnement-local" title="Permalink to this heading">¶</a></h2>
+<h2>Environnement local<a class="headerlink" href="#environnement-local" title="Permalink to this headline">¶</a></h2>
 <section id="installation">
-<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h3>
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
 <section id="avec-docker">
-<h4>1. Avec docker<a class="headerlink" href="#avec-docker" title="Permalink to this heading">¶</a></h4>
+<h4>1. Avec docker<a class="headerlink" href="#avec-docker" title="Permalink to this headline">¶</a></h4>
 <p>Pour exécuter ce projet localement, assurez-vous d’avoir installé Docker
 et Docker Compose sur votre système. Vous pouvez les installer en
 suivant les instructions officielles :</p>
@@ -51,32 +54,32 @@ suivant les instructions officielles :</p>
 <p>Une fois que Docker et Docker Compose sont installés, suivez ces étapes
 :</p>
 <section id="cloner-le-depot-github">
-<h5>1.1. Cloner le dépot github :<a class="headerlink" href="#cloner-le-depot-github" title="Permalink to this heading">¶</a></h5>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:PhP-Nexxt/ocr_devapp_13.git
-$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>ocr_devapp_13
+<h5>1.1. Cloner le dépot github :<a class="headerlink" href="#cloner-le-depot-github" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:PhP-Nexxt/ocr_devapp_13.git
+$ <span class="nb">cd</span> ocr_devapp_13
 </pre></div>
 </div>
 </section>
 <section id="copier-le-fichier-env-sample-en-tant-que-env">
-<h5>1.2. Copier le fichier .env.sample en tant que .env<a class="headerlink" href="#copier-le-fichier-env-sample-en-tant-que-env" title="Permalink to this heading">¶</a></h5>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cp<span class="w"> </span>.env.sample<span class="w"> </span>.env
+<h5>1.2. Copier le fichier .env.sample en tant que .env<a class="headerlink" href="#copier-le-fichier-env-sample-en-tant-que-env" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cp .env.sample .env
 </pre></div>
 </div>
 <p>Modifiez les variables d’environnement dans le fichier <code class="docutils literal notranslate"><span class="pre">.env</span></code> selon
 vos besoins.</p>
 </section>
 <section id="construisez-les-conteneurs-docker">
-<h5>1.3. Construisez les conteneurs docker<a class="headerlink" href="#construisez-les-conteneurs-docker" title="Permalink to this heading">¶</a></h5>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>docker-compose<span class="w"> </span>build
+<h5>1.3. Construisez les conteneurs docker<a class="headerlink" href="#construisez-les-conteneurs-docker" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker-compose build
 </pre></div>
 </div>
 </section>
 <section id="lancer-les-containers-docker">
-<h5>1.4. Lancer les containers docker<a class="headerlink" href="#lancer-les-containers-docker" title="Permalink to this heading">¶</a></h5>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>docker-compose<span class="w"> </span>up
+<h5>1.4. Lancer les containers docker<a class="headerlink" href="#lancer-les-containers-docker" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker-compose up
 <span class="c1"># Les deux commandes ci-dessous sont utiles si vous changez de base de données</span>
-$<span class="w"> </span>docker-compose<span class="w">  </span><span class="nb">exec</span><span class="w"> </span>web<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>migrate
-$<span class="w"> </span>docker-compose<span class="w">  </span><span class="nb">exec</span><span class="w"> </span>web<span class="w"> </span>python<span class="w"> </span>manage.py<span class="w"> </span>createsuperuser
+$ docker-compose  <span class="nb">exec</span> web python manage.py migrate
+$ docker-compose  <span class="nb">exec</span> web python manage.py createsuperuser
 </pre></div>
 </div>
 <p>Les conteneurs Docker seront démarrés, et l’application sera accessible
@@ -89,7 +92,132 @@ $<span class="w"> </span>docker-compose<span class="w">  </span><span class="nb"
 </ul>
 </section>
 </section>
+<section id="sans-docker">
+<h4>2. Sans docker<a class="headerlink" href="#sans-docker" title="Permalink to this headline">¶</a></h4>
+<section id="cloner-le-depot-github-1">
+<span id="id1"></span><h5>2.1. Cloner le dépot github :<a class="headerlink" href="#cloner-le-depot-github-1" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:PhP-Nexxt/ocr_devapp_13.git
+$ <span class="nb">cd</span> ocr_devapp_13
+</pre></div>
+</div>
 </section>
+<section id="copier-le-fichier-env-sample-en-tant-que-env-1">
+<span id="id2"></span><h5>2.2. Copier le fichier .env.sample en tant que .env<a class="headerlink" href="#copier-le-fichier-env-sample-en-tant-que-env-1" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cp .env.sample .env
+</pre></div>
+</div>
+<p>Modifiez les variables d’environnement dans le fichier <code class="docutils literal notranslate"><span class="pre">.env</span></code> selon
+vos besoins.</p>
+</section>
+<section id="creer-et-activez-un-environnement-virtuel">
+<h5>2.3. Creer et activez un environnement virtuel<a class="headerlink" href="#creer-et-activez-un-environnement-virtuel" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 -m venv venv <span class="o">&amp;&amp;</span> <span class="nb">source</span> venv/bin/activate
+</pre></div>
+</div>
+</section>
+<section id="installer-le-fichier-requirement-txt">
+<h5>2.4 Installer le fichier requirement.txt<a class="headerlink" href="#installer-le-fichier-requirement-txt" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ <span class="o">(</span>venv<span class="o">)</span> pip install -r requirement.txt
+</pre></div>
+</div>
+</section>
+<section id="appliquez-les-migrations">
+<h5>2.5 Appliquez les migrations<a class="headerlink" href="#appliquez-les-migrations" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>venv<span class="o">)</span>$ python manage.py migrate
+<span class="o">(</span>venv<span class="o">)</span>$ python manage.py createsuperuser
+</pre></div>
+</div>
+</section>
+<section id="lancer-le-projet">
+<h5>2.6 Lancer le projet<a class="headerlink" href="#lancer-le-projet" title="Permalink to this headline">¶</a></h5>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>venv<span class="o">)</span>$ python manage.py runserver
+</pre></div>
+</div>
+<p>l’application sera accessible à l’adresse:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+<section id="environnement-de-production">
+<h2>Environnement de production<a class="headerlink" href="#environnement-de-production" title="Permalink to this headline">¶</a></h2>
+<p>Pour la mise en production de ce projet, j’ai du utiliser un vps(machine
+virtuelle) avec une distribution Ubuntu 22.04 sur laquelle j’ai
+préalablement installé docker et dockercompose.</p>
+<p>Pour la suite nous aurons besoin de la clé ssh privée du serveur, ainsi
+que le nom d’utilisateur.</p>
+<p>Depuis le setting github du projet, il faudra ajouter les variables
+secretes telles que USERNAME_SERVEUR, SERVER_PRIVATE_KEY, les
+informations de connexion à notre dockerhub et les variables
+d’environnement du projet.</p>
+<p>Une fois ces elements configurés, le pipeline se charge du reste.</p>
+<p>Ce pipe line est constitué de 5 étapes, dépendantes l’une aprés
+l’autres.</p>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p>La documentation de ce projet est disponible, via readthedoc à l’adresse
+suivante :</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://ocr-devapp-13.readthedocs.io/en/latest">https://ocr-devapp-13.readthedocs.io/en/latest</a>/#</p></li>
+</ul>
+</section>
+<section id="realise-avec">
+<h2>Realisé avec<a class="headerlink" href="#realise-avec" title="Permalink to this headline">¶</a></h2>
+<p>Ce projet a été développé en utilisant les technologies suivantes :</p>
+<ul>
+<li><figure class="align-default" id="id3">
+<img alt="Python Badge" src="https://img.shields.io/badge/Python-3.11-blue?logo=python" />
+<figcaption>
+<p><span class="caption-text">Python Badge</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><figure class="align-default" id="id4">
+<img alt="Django Badge" src="https://img.shields.io/badge/Django-4.2.7-green?logo=django" />
+<figcaption>
+<p><span class="caption-text">Django Badge</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><figure class="align-default" id="id5">
+<img alt="Docker Badge" src="https://img.shields.io/badge/Docker-20.10-blue?logo=docker" />
+<figcaption>
+<p><span class="caption-text">Docker Badge</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><figure class="align-default" id="id6">
+<img alt="Docker Compose Badge" src="https://img.shields.io/badge/Docker%20Compose-2.2.3-blue?logo=docker" />
+<figcaption>
+<p><span class="caption-text">Docker Compose Badge</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><figure class="align-default" id="id7">
+<img alt="Nginx Badge" src="https://img.shields.io/badge/Nginx-1.25-orange?logo=nginx" />
+<figcaption>
+<p><span class="caption-text">Nginx Badge</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><figure class="align-default" id="id8">
+<img alt="Ubuntu Badge" src="https://img.shields.io/badge/Ubuntu-22.04-blue?logo=ubuntu" />
+<figcaption>
+<p><span class="caption-text">Ubuntu Badge</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><figure class="align-default" id="id9">
+<img alt="GitHub Actions Badge" src="https://img.shields.io/badge/GitHub%20Actions-green?logo=github-actions" />
+<figcaption>
+<p><span class="caption-text">GitHub Actions Badge</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
 </section>
 </section>
 
@@ -110,10 +238,13 @@ $<span class="w"> </span>docker-compose<span class="w">  </span><span class="nb"
 
 
 <h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Guide d’utilisation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#environnement-local">Environnement local</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environnement-de-production">Environnement de production</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#realise-avec">Realisé avec</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">ocr_devapp_13</a></li>
@@ -132,12 +263,12 @@ $<span class="w"> </span>docker-compose<span class="w">  </span><span class="nb"
   <h3 id="searchlabel">Quick search</h3>
     <div class="searchformwrapper">
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="text" name="q" aria-labelledby="searchlabel" />
       <input type="submit" value="Go" />
     </form>
     </div>
 </div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -154,8 +285,8 @@ $<span class="w"> </span>docker-compose<span class="w">  </span><span class="nb"
       &copy;2024, Philippe.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.1.2</a>
-      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
       <a href="_sources/README.rst.txt"
