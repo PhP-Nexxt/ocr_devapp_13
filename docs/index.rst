@@ -10,6 +10,7 @@ Welcome to ocr devapp docs's documentation!
    :maxdepth: 2
    :caption: Contents:
    
+   README
    modules
 
 
