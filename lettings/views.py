@@ -10,6 +10,15 @@ from lettings.models import Letting
 
 
 def index(request):
+    """
+    Renders lettings list page with all Letting objects from the database.
+    Fetches Lettings, packs them into context, and returns rendered template.
+
+    :param request: http request object.
+    :type request: object
+    :return: http response with context
+    :rtype: tuple[request, html, dict[list[dict]]
+    """
     lettings_list = Letting.objects.all()
     context = {"lettings_list": lettings_list}
     return render(request, "lettings/index.html", context)
@@ -31,6 +40,17 @@ def index(request):
 
 
 def letting(request, letting_id):
+    """
+    Renders a detailed page for a single Letting object identified by letting_id.
+    Fetches the Letting, creates context with details, and renders the template.
+
+    :param request: http request object.
+    :type request: object
+    :param letting_id: letting id.
+    :type letting_id: int
+    :return: http response with context
+    :rtype: tuple[request, html, dict[str, dict]
+    """
     letting = Letting.objects.get(id=letting_id)
     context = {
         "title": letting.title,

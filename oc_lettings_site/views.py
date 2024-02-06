@@ -9,5 +9,13 @@ from django.shortcuts import render
 # Aliquam vitae erat ac orci placerat luctus. Nullam elementum urna nisi,
 # pellentesque iaculis enim cursus in. Praesent volutpat porttitor magna,
 # non finibus neque cursus id.
+
+
 def index(request):
+    """
+    Serves the home page of the oc letting site application
+
+    Returns:
+    - HttpResponse: This object contains the rendered template ('index.html')
+    """
     return render(request, "index.html")
