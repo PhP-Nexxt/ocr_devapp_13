@@ -1,6 +1,8 @@
 # version of the syntax used in this file
 version: '3.9'
 
+# here we build / .ci = use cache to save time
+
 services:
   web:
     # path of dockerfile

@@ -78,7 +78,7 @@ WSGI_APPLICATION = "oc_lettings_site.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),  # Temporary path
+        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),  # Create new DB
     }
 }
 

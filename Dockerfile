@@ -1,6 +1,8 @@
 # Starts from the Python image
 FROM python:3.11-slim
 
+# Images parameters
+
 # Sets some environment variables (1=True)
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
@@ -16,7 +18,7 @@ COPY requirements.txt /code
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
-# # Copy the rest of the source code
+# # Copy the rest of the source code (application)
 COPY . /code/
 
 # Starts the Django app
